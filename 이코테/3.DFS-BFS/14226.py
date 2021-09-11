@@ -9,13 +9,13 @@ d[1][0] = 0
 while q:
     n, c = q.popleft()
     if d[n][n] == -1:
-        d[n][n] == d[n][c] + 1
+        d[n][n] = d[n][c] + 1
         q.append((n, n))
     if n+c <= s and d[n+c][c] == -1:
-        d[n+c][c] == d[n][c] + 1
+        d[n+c][c] = d[n][c] + 1
         q.append((n+c, c))
     if n-1 >= 0 and d[n-1][c] == -1:
-        d[n-1][c] == d[n][c] + 1
+        d[n-1][c] = d[n][c] + 1
         q.append((n-1, c))
 
 ans = -1
