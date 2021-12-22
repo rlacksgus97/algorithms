@@ -19,3 +19,5 @@ for _ in range(t):
             left.append(x)
     left.extend(reversed(right))
     print(''.join(left))
+
+#fail

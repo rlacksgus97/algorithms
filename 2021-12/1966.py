@@ -16,3 +16,5 @@ for _ in range(t):
                 priority.pop(0)
         else:
             priority.append(priority.pop(0))
+
+#fail

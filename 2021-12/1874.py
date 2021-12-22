@@ -17,3 +17,5 @@ for _ in range(n):
         exit(0)
 
 print('\n'.join(answer))
+
+#fail
