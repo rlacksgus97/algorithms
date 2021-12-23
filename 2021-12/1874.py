@@ -1,14 +1,14 @@
 n = int(input())
+
+idx = 1
 stack = []
 answer = []
-idx = 0
-
 for _ in range(n):
     x = int(input())
     while idx <= x:
         stack.append(idx)
-        idx += 1
         answer.append('+')
+        idx += 1
     if stack[-1] == x:
         stack.pop()
         answer.append('-')
@@ -17,5 +17,3 @@ for _ in range(n):
         exit(0)
 
 print('\n'.join(answer))
-
-#fail

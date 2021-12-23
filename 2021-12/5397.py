@@ -1,23 +1,21 @@
 t = int(input())
 
 for _ in range(t):
-    a = input()
+    password = input()
+
     left = []
     right = []
-
-    for x in a:
-        if x == '<':
-            if left != []:
+    for a in password:
+        if a == '<':
+            if left:
                 right.append(left.pop())
-        elif x == '>':
-            if right != []:
+        elif a == '>':
+            if right:
                 left.append(right.pop())
-        elif x == '-':
-            if left != []:
+        elif a == '-':
+            if left:
                 left.pop()
         else:
-            left.append(x)
-    left.extend(reversed(right))
-    print(''.join(left))
+            left.append(a)
 
-#fail
+    print(''.join(left)+''.join(reversed(right)))
