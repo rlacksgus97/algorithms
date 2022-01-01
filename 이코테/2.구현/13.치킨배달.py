@@ -14,11 +14,7 @@ for i in range(n):
         elif city[i][j] == 2:
             chickens.append((i,j))
 
-# print(houses)
-# print(chickens)
-
 cases = list(combinations(chickens, m))
-# print(cases)
 answer = 2*n*2*n
 for case in cases:
     city_chicken_distance = 0
@@ -27,7 +23,6 @@ for case in cases:
         for c in case:
             distance = abs(h[0]-c[0])+abs(h[1]-c[1])
             chicken_distance = min(chicken_distance, distance)
-        # print(h, chicken_distance)
         city_chicken_distance += chicken_distance
     answer = min(answer, city_chicken_distance)
 
