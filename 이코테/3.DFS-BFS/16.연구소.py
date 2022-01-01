@@ -1,5 +1,3 @@
-from itertools import combinations
-
 n, m = map(int, input().split())
 lab = []
 for _ in range(n):
@@ -12,19 +10,17 @@ for i in range(n):
         if lab[i][j] == 0:
             empty.append((i,j))
 
-wall_cases = list(combinations(empty, 3))
-
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
-def dfs(x, y):
+def virus(x, y):
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
         if nx < n and nx > -1 and ny < m and ny > -1:
             if test[nx][ny] == 0:
                 test[nx][ny] = 2
-                dfs(nx, ny)
+                virus(nx, ny)
 
 def score():
     count = 0
@@ -35,21 +31,25 @@ def score():
     return count
 
 answer = 0
-for walls in wall_cases:
-
+def dfs(wall):
+    global answer
+    if wall == 3:
+        for i in range(n):
+            for j in range(m):
+                test[i][j] = lab[i][j]
+        for i in range(n):
+            for j in range(m):
+                if test[i][j] == 2:
+                    virus(i, j)
+        answer = max(answer, score())
+        return
     for i in range(n):
         for j in range(m):
-            test[i][j] = lab[i][j]
-
-    for w in walls:
-        test[w[0]][w[1]] = 1
-    
-    for i in range(n):
-        for j in range(m):
-            if test[i][j] == 2:
-                dfs(i, j)
-    
-    count = score()
-    answer = max(answer, count)
-
+            if lab[i][j] == 0:
+                lab[i][j] = 1
+                wall += 1
+                dfs(wall)
+                lab[i][j] = 0
+                wall -= 1
+dfs(0)
 print(answer)
