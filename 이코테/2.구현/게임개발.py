@@ -21,14 +21,12 @@ count = 1
 turn_count = 0
 while True:
     turn()
-    print(a, b, d)
     na = a + da[d]
     nb = b + db[d]
     if p[na][nb] == 0 and v[na][nb] == False:
         a = na
         b = nb
         v[na][nb] = True
-        print((na, nb))
         count += 1
         turn_count = 0
         continue
