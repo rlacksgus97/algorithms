@@ -1,20 +1,22 @@
 n = int(input())
-
-board = {}
+counter = dict()
 for _ in range(n):
     book = input()
-    if book in board:
-        board[book] += 1
+    if book in counter:
+        counter[book] += 1
     else:
-        board[book] = 1
+        counter[book] = 1
 
-top = max(board.values())
-answer = []
+# max_count = max(counter.values())
+max_count = 0
+max_name = []
+for i, v in enumerate(counter):
+    if counter[v] > max_count:
+        max_count = counter[v]
 
-for book, count in board.items():
-    if count == top:
-        answer.append(book)
+for i, v in enumerate(counter):
+    if counter[v] == max_count:
+        max_name.append(v)
 
-print(sorted(answer)[0])
-
-#fail
+max_name.sort()
+print(max_name[0])
