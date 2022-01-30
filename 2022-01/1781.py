@@ -1,18 +1,14 @@
 import heapq
 
 n = int(input())
-cups = []
+questions = []
 for _ in range(n):
-    cups.append(tuple(map(int, input().split())))
-cups.sort()
-
-q = []
-for c in cups:
-    deadline = c[0]
-    heapq.heappush(q, c[1])
-    if deadline < len(q):
-        heapq.heappop(q)
-
-print(sum(q))
-
-#fail
+    questions.append(tuple(map(int, input().split())))
+questions.sort()
+solve = []
+for q in questions:
+    deadline, ramen = q[0], q[1]
+    heapq.heappush(solve, ramen)
+    if len(solve) > deadline:
+        heapq.heappop(solve)
+print(sum(solve))
