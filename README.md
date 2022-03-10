@@ -1,7 +1,7 @@
 # algorithms
 
 삼성기출
-15684
+15683 15684
 
 Union Find
 4195
