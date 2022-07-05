@@ -13,7 +13,7 @@ for i in range(k):
 def check_end():
     for i in range(n):
         for j in range(n):
-            if len(state[i][j]) == 4:
+            if len(state[i][j]) >= 4:
                 return True
     return False
 
