@@ -16,7 +16,6 @@ def toTime(second):
     return str(h)+':'+str(m)+':'+str(s)
     
 def solution(play_time, adv_time, logs):
-    answer = ''
     playTime = toSeconds(play_time)
     advTime = toSeconds(adv_time)
     
@@ -33,10 +32,10 @@ def solution(play_time, adv_time, logs):
     for i in range(1, playTime+1):
         watchers[i] += watchers[i-1]
     
-    answer = toTime(0)
+    answer = 0
     maxCount = watchers[advTime-1]
     for i in range(1, playTime-advTime+1):
         if watchers[i+advTime] - watchers[i] > maxCount:
             maxCount = watchers[i+advTime] - watchers[i]
-            answer = toTime(i+1)
-    return answer
+            answer = i+1
+    return toTime(answer)
