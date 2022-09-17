@@ -18,10 +18,6 @@ def solution(m, n, board):
                 if board[i+x][j+y] != '0':
                     board[i+x][j+y] = '0'
                     answer += 1
-    
-        # for i in range(m):
-        #     print(board[i])
-        # print()
         
         for j in range(n):
             for i in range(m-1, -1, -1):
@@ -31,7 +27,4 @@ def solution(m, n, board):
                         board[x][j], board[x+1][j] = board[x+1][j], board[x][j]
                         x += 1
     
-        # for i in range(m):
-        #     print(board[i])
-        # print()
     return answer
