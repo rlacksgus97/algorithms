@@ -19,7 +19,6 @@ def solution(cacheSize, cities):
             else:
                 # LRU
                 cacheList = sorted(cache.items(), key=lambda x: x[1])
-                # print(cacheList)
                 del cache[cacheList[0][0]]
                 cache[city] = clock
     return answer
