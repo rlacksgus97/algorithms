@@ -1,5 +1,3 @@
-from copy import deepcopy
-
 N, M, K = map(int, input().split())
 grid = [[[] for _ in range(N)] for _ in range(N)]
 for _ in range(M):
@@ -59,8 +57,8 @@ def change():
 
 
 for _ in range(K):
-    grid = deepcopy(move())
-    grid = deepcopy(change())
+    grid = move()
+    grid = change()
 
 answer = 0
 for x in range(N):
